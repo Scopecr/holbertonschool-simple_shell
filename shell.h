@@ -2,7 +2,7 @@
 #define SHELL_H
 
 /**
- * including std libreries for funtions
+ * including std libraries
  */
 #include <stdio.h>
 #include <unistd.h>
