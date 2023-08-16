@@ -7,7 +7,7 @@ int main(void)
 
 	while(i)
 	{
-		printf("shell >_");
+		printf("shell >");
 		char command = malloc(sizeof(char));
 	}
 }
