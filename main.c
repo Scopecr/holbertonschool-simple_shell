@@ -1,13 +1,14 @@
 #include "shell.h"
 
-int main(void)
+int main(int argc, char argv[])
 {
-	int i;
-	char *command[] = {" ", NULL};
-
-	while(i)
-	{
-		printf("shell >");
-		char command = malloc(sizeof(char));
-	}
+typedef struct comm;
+comm [] =
+{
+{"ls" = comm_ls;},
+{"cd" = comm_cd;},
+{"mkdir" = comm_mkdir;},
+{"cat" = comm_cat;}
+};
+}
 }
