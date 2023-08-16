@@ -6,8 +6,8 @@
       "type": "lldb",
       "request": "launch",
       "args": [],
-      "cwd": "/Users/waltercarrion/Desktop/github/holbertonschool-simple_shell",
-      "program": "/Users/waltercarrion/Desktop/github/holbertonschool-simple_shell/build/Debug/outDebug"
+      "cwd": "/Users/waltercarrion/Desktop/github/holbertonschool-simple_shell-1",
+      "program": "/Users/waltercarrion/Desktop/github/holbertonschool-simple_shell-1/build/Debug/outDebug"
     }
   ]
 }
