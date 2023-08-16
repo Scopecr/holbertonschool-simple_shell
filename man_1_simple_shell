@@ -1,1 +1,27 @@
-man page for the shell
+
+.TH SHell
+.SH NAME
+Shell
+
+.SH SYNOPSIS
+#include "main.h"
+
+.SH DESCRIPTION
+write here 
+ 
+.SH COMPILE
+        gcc something
+
+.SH RETURN VALUE
+write return value stuff here
+
+.SH EXAMPLES
+The following examples demonstrate the usage
+
+
+.SH AUTHOR
+Diego Gonzalez y Walter Carrion
+
+
+.SH BUGS
+None
