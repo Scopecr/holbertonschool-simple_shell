@@ -14,7 +14,8 @@
 #include <stddef.h>
 #include <sys/stat.h>
 #include <signal.h>
-
+/*functions*/
+char *_getline(FILE *bp);
 
 
 #endif
