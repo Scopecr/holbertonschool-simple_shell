@@ -15,14 +15,6 @@
 #include <sys/stat.h>
 #include <signal.h>
 
-/**
- * structure to go trough arguments
-*/
 
-typedef struct *comm
-{
-char *comm;
-int *comm;
-};
 
 #endif
