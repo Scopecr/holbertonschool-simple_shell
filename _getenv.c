@@ -1,4 +1,9 @@
 #include "shell.h"
+/**
+* _getenv - gets an environment variable
+* @name: environment variable to get
+* Return: pointer to environment variable or NULL if there is no match
+*/
 
 char *_getenv(const char *name)
 {
@@ -41,7 +46,12 @@ char *_getenv(const char *name)
 	}
 return (NULL);
 }
-
+/**
+ * copy_env - copies environment variable
+ * @environ_copy: pointer to copy of environment variable
+ * @environ_length: length of environment variable
+ * Return: double pointer to copy environment variable
+*/
 char **copy_env(char **environ_copy, unsigned int environ_length)
 {
 	char *variable;
