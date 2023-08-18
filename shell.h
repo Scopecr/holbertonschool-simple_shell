@@ -16,6 +16,11 @@
 #include <signal.h>
 /*functions*/
 char *_getline(FILE *bp);
+char *_getenv(const char *name);
+void errors(int error);
 
+
+/* error strings */
+extern char **environ;
 
 #endif
