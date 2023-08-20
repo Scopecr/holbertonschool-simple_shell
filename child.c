@@ -25,7 +25,7 @@ int child(char *fullpath, char **tokens)
 		if (execve_status == -1)
 			return(-1);
 	}
-	else 
+	else
 	wait(&status);
 	return (0);
 }
