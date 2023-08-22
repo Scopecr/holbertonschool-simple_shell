@@ -4,7 +4,7 @@
 int main(void)
 {
 	char *line , *path, *fullpath;
-	char **token;
+	char **tokens;
 	int flag, builtin_status, child_status;
 	struct stat buf;
 
@@ -20,12 +20,12 @@ int main(void)
 		tokens = tokenizer(line);
 		if (tokens[0] == NULL)
 				continue;
-		builtin_status = builtin_execute(token);
+		builtin_status = builtin_execute(tokens);
 		if (builtin_status == 0 || builtin_status == -1)
 				_exit(EXIT_SUCCESS);
 		flag = 0 ; /* 0 if full_path is not malloc'd*/
 		path = _getenv("PATH");
-		fullpath = _which(token[0], fullpath, path);
+		fullpath = _which(tokens[0], fullpath, path);
 		if (fullpath == NULL)
 				fullpath = tokens[0];
 		else
