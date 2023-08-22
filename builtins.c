@@ -1,4 +1,4 @@
-#include "Shell.h"
+#include "shell.h"
 /**
  **shell_exit - exits the shell
  **Return: void
