@@ -12,7 +12,7 @@ int main(void)
 	{
 		prompt(STDIN_FILENO, buf);
 		line = _getline(stdin);
-		if (_strcmp(line, "\n", 1) == 0)
+		if (strcmp(line, "\n") == 0)
 		{
 			free(line);
 			continue;

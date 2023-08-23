@@ -3,7 +3,6 @@
 int builtin_execute(char **tokens)
 {
 	int status;
-	unsigned int length;
 	unsigned int num;
 	unsigned int i;
 
@@ -16,12 +15,11 @@ int builtin_execute(char **tokens)
 	if (tokens[0] == NULL)
 	return (1);
 
-	length = _strlen(tokens[0]);
 
 	num =  shell_num_builtins(builtin);
 	for (i = 0; i < num; i++)
 	{
-		if (_strcmp(tokens[0], builtin[i].name, length) == 0)
+		if (strcmp(tokens[0], builtin[i].name) == 0)
 		{
 			status = (builtin[i].p)();
 			return (status);
