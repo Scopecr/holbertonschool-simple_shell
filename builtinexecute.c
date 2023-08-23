@@ -13,7 +13,7 @@ int builtin_execute(char **tokens)
 		{NULL, NULL}
 	};
 
-	if (token[0] == NULL)
+	if (tokens[0] == NULL)
 	return (1);
 
 	length = _strlen(tokens[0]);
