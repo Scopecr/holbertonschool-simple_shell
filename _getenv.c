@@ -26,6 +26,8 @@ char *_getenv(const char *name)
 		compare = _strncmp((char *)name, variable, length);
 		if (compare == 1)
 		{
+			value = strtok(variable, "=");
+			value = strtok(NULL, "\n");
 		if (value == '\0')
 		{
 			errors(4);
@@ -35,7 +37,7 @@ char *_getenv(const char *name)
 		path = malloc(sizeof(char) * path_length + 1);
 		if (path == NULL)
 		{
-			error(3);
+			errors(3);
 			return (NULL);
 		}
 		path = _strcpy(path, value);
