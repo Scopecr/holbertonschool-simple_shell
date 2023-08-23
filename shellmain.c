@@ -22,7 +22,14 @@ int main(void)
 				continue;
 		builtin_status = builtin_execute(tokens);
 		if (builtin_status == 0 || builtin_status == -1)
-				_exit(EXIT_SUCCESS);
+		{
+			free(tokens);
+			free(line);
+		}
+		if (builtin_status == 0)
+			continue;
+		if (builtin_status == -1)
+			_exit(EXIT_SUCCESS);
 		flag = 0 ; /* 0 if full_path is not malloc'd*/
 		path = _getenv("PATH");
 		fullpath = _which(tokens[0], fullpath, path);
