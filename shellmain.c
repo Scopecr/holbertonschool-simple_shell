@@ -12,7 +12,7 @@ int main(void)
 	{
 		prompt(STDIN_FILENO, buf);
 		line = _getline(stdin);
-		if (_strcmp(line, "\n", 1) == 0)
+		if (strcmp(line, "\n") == 0)
 		{
 			free(line);
 			continue;
@@ -36,11 +36,13 @@ int main(void)
 		if (fullpath == NULL)
 				fullpath = tokens[0];
 		else
+		{
 				flag = 1; /* if fullpath was malloc'd, flag to free */
 				child_status = child(fullpath, tokens);
 				if (child_status == -1)
 						errors(2);
 				free_all(tokens, path, line, fullpath, flag);
+		}
 	}
 	return (0);
 }

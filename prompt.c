@@ -13,7 +13,7 @@ void _puts(char *str)
 {
 	unsigned int length;
 
-	length = _strlen(str);
+	length = strlen(str);
 
 	write(STDOUT_FILENO, str, length);
 }

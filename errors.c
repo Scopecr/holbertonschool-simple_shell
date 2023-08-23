@@ -5,7 +5,7 @@ void errors(int error)
 	switch (error)
 	{
 		case 1: 
-				write(STDERR_FILENO, ERR_FORK, _strlen(ERR_FORK));
+				write(STDERR_FILENO, ERR_FORK, strlen(ERR_FORK));
 				perror("Error");
 				break;
 
@@ -14,11 +14,11 @@ void errors(int error)
 				break;
 
 		case 3:
-				write(STDERR_FILENO, ERR_MALLOC, _strlen(ERR_MALLOC));
+				write(STDERR_FILENO, ERR_MALLOC, strlen(ERR_MALLOC));
 				break; 
 
 		case 4:
-				write(STDERR_FILENO, ERR_PATH, _strlen(ERR_PATH));
+				write(STDERR_FILENO, ERR_PATH, strlen(ERR_PATH));
 				break;
 
 		default:

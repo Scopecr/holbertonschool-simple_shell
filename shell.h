@@ -75,5 +75,4 @@ list_s *pathlist(char *variable, list_s *head);
 /* prototypes for free functions */
 void free_all(char **tokens, char *path, char *line, char *fullpath, int flag);
 void free_dp(char **array, unsigned int length);
-
 #endif
