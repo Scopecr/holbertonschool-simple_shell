@@ -14,9 +14,11 @@ char *_getenv(const char *name)
 
 	environ_length = 0;
 	while (environ[environ_length] != NULL)
+	{
 		environ_length++;
 		environ_copy = NULL;
 		environ_copy = copy_env(environ_copy, environ_length);
+	}
 
 		length = strlen((char *)name);
 		i =0;
@@ -28,7 +30,7 @@ char *_getenv(const char *name)
 		{
 			value = strtok(variable, "=");
 			value = strtok(NULL, "\n");
-		if (value == '\0')
+		if (value == NULL)
 		{
 			errors(4);
 			exit(EXIT_FAILURE);
