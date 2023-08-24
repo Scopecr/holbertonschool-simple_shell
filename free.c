@@ -5,7 +5,7 @@ void free_all(char **tokens, char *path, char *line, char *fullpath, int flag)
 	free(path);
 	free(tokens);
 	free(line);
-	if ( flag == 1)
+	if (flag == 1)
 		free(fullpath);
 }
 
