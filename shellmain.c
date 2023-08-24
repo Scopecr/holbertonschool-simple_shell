@@ -8,6 +8,8 @@ int main(void)
 	int flag, builtin_status, child_status;
 	struct stat buf;
 
+	memset(&buf, 0, sizeof(buf));
+
 	while (TRUE)
 	{
 		prompt(STDIN_FILENO, buf);
