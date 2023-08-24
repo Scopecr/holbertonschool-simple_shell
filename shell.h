@@ -56,10 +56,10 @@ void errors(int error);
 
 /* utility functions */
 void _puts(char *str);
-int _strlen(char *s);
-int _strcmp(char *name, char *variable, unsigned int length);
-int _strncmp(char *name, char *variable, unsigned int length);
-char *_strcpy(char *dest, char *src);
+int strlen(char *s);
+int strcmp(char *name, char *variable, unsigned int length);
+int strncmp(char *name, char *variable, unsigned int length);
+char *strcpy(char *dest, char *src);
 
 /* prototypes for builtins */
 int shell_env(void);
