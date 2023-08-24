@@ -85,3 +85,16 @@ char **copy_env(char **environ_copy, unsigned int environ_length)
 	}
 	return (environ_copy);
 }
+/**
+ * 
+*/
+void free_dp(char **dp, unsigned int length)
+{
+	unsigned int i;
+
+	for (i = 0; i < length; i++)
+	{
+	free(dp[i]);
+	}
+	free(dp);
+}
