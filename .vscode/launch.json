@@ -3,11 +3,13 @@
   "configurations": [
     {
       "name": "C/C++ Runner: Debug Session",
-      "type": "lldb",
+      "type": "cppvsdbg",
       "request": "launch",
       "args": [],
-      "cwd": "/Users/waltercarrion/Desktop/github/holbertonschool-simple_shell",
-      "program": "/Users/waltercarrion/Desktop/github/holbertonschool-simple_shell/build/Debug/outDebug"
+      "stopAtEntry": false,
+      "console": "externalTerminal",
+      "cwd": "c:/Users/walte/Documents/badusb/holbertonschool-simple_shell",
+      "program": "c:/Users/walte/Documents/badusb/holbertonschool-simple_shell/build/Debug/outDebug"
     }
   ]
 }
