@@ -1,6 +1,6 @@
 #include "shell.h"
 
-int _strcmp(char *name, char *variable, unsigned int length)
+int strcmp(char *name, char *variable, unsigned int length)
 {
 	unsigned int var_length;
 	unsigned int i;
@@ -19,17 +19,17 @@ int _strcmp(char *name, char *variable, unsigned int length)
 	return (0);
 }
 
-char *_strcpy (char *dest, char *src)
+char *strcpy (char *dest, char *src)
 {
 	int i;
-	int j = _strlen(src);
+	int j = strlen(src);
 
 	for (i = 0; i <= j; i++)
 		dest[i] = src[i];
 		return (dest);
 }
 
-int _strlen(char *s)
+int strlen(char *s)
 {
 	int i = 0;
 
