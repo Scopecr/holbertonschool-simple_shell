@@ -1,27 +1,61 @@
+.TH SIMPLE_SHELL 1 "August 2023" "Version 1.0"
 
-.TH SHell
 .SH NAME
-Shell
+simple_shell - A basic command-line shell
 
 .SH SYNOPSIS
-#include "main.h"
+.B #include\ "main.h"
+
+.B Interactive Mode: ./hsh
+
+.B Non-Interactive Mode: [COMMAND]... | ./hsh
+.P
+
 
 .SH DESCRIPTION
-write here 
- 
-.SH COMPILE
-        gcc something
+The simple_shell is a simple command-line prompt that emulates basic functionalities of the Bash shell. It was built as a project for Holberton School San Juan. The shell allows users to execute basic commands, similar to those found in the Bash shell.
 
-.SH RETURN VALUE
-write return value stuff here
+.SH COMPILATION
+To compile the shell, use the following command:
+.B
+gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
 
-.SH EXAMPLES
-The following examples demonstrate the usage
+.SH SYNTAX
+The shell processes user input commands in the following syntax:
+.B
+command name {arguments}
+.PP
+For example:
+.B
+ls -l: List all files and directories in long format.
+.PP
+cat shell.h: Display the content of the file named "shell.h".
+
+.PP
+For more information on a specific command, you can use the man command, which provides detailed documentation about that command.
+
+.SH BUILT-IN COMMANDS
+The shell includes built-in commands:
+
+.TP
+.B
+exit: Terminate the shell. Returns -1 to indicate termination.
+
+.TP
+.B
+env: Display all environment variables with their values.
+
+.TP
+.B
+help: Display a list of available built-in commands.
 
 
-.SH AUTHOR
-Diego Gonzalez y Walter Carrion
-
+.SH AUTHORS
+Walter Carrion - GitHub
+Diego Gonzales - GitHub
 
 .SH BUGS
-None
+none
+
+.SH COPYRIGHT
+Holberton CH 21
