@@ -1,7 +1,7 @@
 #include "shell.h"
 #include <stdlib.h>
 
-char **copy_env(char **environ_copy, unsigned int environ_length); // Add this prototype
+char **copy_env(char **environ_copy, unsigned int environ_length); /* Add this prototype */
 
 /**
  * _getenv - gets an environment variable
@@ -20,7 +20,7 @@ char *_getenv(const char *name)
     {
         environ_length++;
     }
-    environ_copy = copy_env(environ_copy, environ_length); // Pass environ_copy here
+    environ_copy = copy_env(environ_copy, environ_length); /* Pass environ_copy here */
 
     length = strlen(name);
     i = 0;
@@ -37,6 +37,7 @@ char *_getenv(const char *name)
     }
     return NULL;
 }
+
 
 
 char **copy_env(unsigned int environ_length)
