@@ -1,4 +1,40 @@
 #include "shell.h"
+#include <string.h>
+
+char *_which(char *command, char *fullpath, char *path)
+{
+    unsigned int command_length, path_length, original_path_length;
+    char path_copy[PATH_MAX];
+    char *token;
+
+    command_length = strlen(command);
+    original_path_length = strlen(path);
+    strncpy(path_copy, path, sizeof(path_copy) - 1);
+    path_copy[sizeof(path_copy) - 1] = '\0';
+
+    token = strtok(path_copy, ":");
+    while (token != NULL)
+    {
+        path_length = strlen(token);
+        fullpath = malloc(path_length + command_length + 2);
+        if (fullpath == NULL)
+        {
+            errors(3);
+            return NULL;
+        }
+        strncpy(fullpath, token, path_length);
+        fullpath[path_length] = '/';
+        strncpy(fullpath + path_length + 1, command, command_length);
+        fullpath[path_length + command_length + 1] = '\0';
+        if (access(fullpath, X_OK) == 0)
+            break;
+        free(fullpath);
+        fullpath = NULL;
+        token = strtok(NULL, ":");
+    }
+
+    return fullpath;
+}
 #include "shell.h"
 #include <stdio.h>
 #include <stdlib.h>
