@@ -1,5 +1,5 @@
 #include "shell.h"
-#include <stddef.h> // Include this header for ssize_t and size_t
+#include <stddef.h>
 
 /**
  * _getline - take character input and stores it in a pointer
