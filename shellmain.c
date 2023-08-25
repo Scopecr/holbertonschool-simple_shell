@@ -11,7 +11,7 @@ int main(void)
 
     while (status)
     {
-        int i; // Declare i outside the loop
+        int i;
         printf(PROMPT);
         read = getline(&line, &len, stdin);
         if (read == -1)
