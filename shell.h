@@ -11,6 +11,7 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <sys/wait.h>
+#include <limits.h>
 
 #define BUFFER 1024
 #define TRUE 1
