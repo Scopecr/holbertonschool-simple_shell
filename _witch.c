@@ -1,5 +1,4 @@
 #include "shell.h"
-#include <limits.h> // Include for PATH_MAX
 
 char *_which(char *command, char *path)
 {
