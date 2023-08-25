@@ -47,12 +47,13 @@ All files will be compiled with the folling command: `gcc -Wall -Werror -Wextra 
  - `exit` - command to leave the shell environment.
 
 ### Exiting command and the shell
-	To exit out of a command or process the user can use the `ctrl c` keys.`Control c` stops a process
-	and causes it to abort. The user can also utilize the command `ctrl D` which will just exit.
-	When the command `cntrl D` is used an exit status of 0 is given. Using exit, you can input its exit
-	status or is defaulted to the status of the last command. 
+To exit out of a command or process the user can use the `ctrl c` keys.`Control c` stops a process
+and causes it to abort. The user can also utilize the command `ctrl D` which will just exit.
+When the command `cntrl D` is used an exit status of 0 is given. Using exit, you can input its exit
+status or is defaulted to the status of the last command. 
 
 ## Authors
 Walter Carrion - https://github.com/Scopecr
+
 Diego Gonzales - https://github.com/daggzu
 
