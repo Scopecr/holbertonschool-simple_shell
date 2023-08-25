@@ -1,6 +1,13 @@
 #include "shell.h"
-#include <string.h>
+#include <stdlib.h>
 
+char **copy_env(char **environ_copy, unsigned int environ_length); // Add this prototype
+
+/**
+ * _getenv - gets an environment variable
+ * @name: environment variable to get
+ * Return: pointer to environment variable or NULL if there is no match
+ */
 char *_getenv(const char *name)
 {
     char **environ_copy;
@@ -13,7 +20,7 @@ char *_getenv(const char *name)
     {
         environ_length++;
     }
-    environ_copy = copy_env(NULL, environ_length); // Pass NULL as the first argument
+    environ_copy = copy_env(environ_copy, environ_length); // Pass environ_copy here
 
     length = strlen(name);
     i = 0;
@@ -23,14 +30,14 @@ char *_getenv(const char *name)
         compare = strncmp(name, variable, length);
         if (compare == 0)
         {
-            value = strchr(variable, '=') + 1;
+            value = strchr(variable, '=') + 1; /* Find the value part after '=' */
             return value;
         }
         i++;
     }
-    free_dp(environ_copy, environ_length); // Free the copied environment
     return NULL;
 }
+
 
 char **copy_env(unsigned int environ_length)
 {
