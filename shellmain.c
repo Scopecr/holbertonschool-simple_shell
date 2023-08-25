@@ -25,7 +25,7 @@ int main(void)
         else
             status = child(fullpath, tokens);
 
-        free_dp(tokens, _strlen_arr(tokens));
+        free_dp(tokens, _strlen(tokens)); // Change _strlen_arr to _strlen here
         free(fullpath);
     }
 
