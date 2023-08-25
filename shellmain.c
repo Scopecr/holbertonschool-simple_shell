@@ -11,6 +11,7 @@ int main(void)
 
     while (status)
     {
+        int i; // Declare i outside the loop
         printf(PROMPT);
         read = getline(&line, &len, stdin);
         if (read == -1)
@@ -25,7 +26,7 @@ int main(void)
         else
             status = child(fullpath, tokens);
 
-        for (int i = 0; tokens[i] != NULL; i++) {
+        for (i = 0; tokens[i] != NULL; i++) {
             free(tokens[i]);
         }
         free(tokens);
