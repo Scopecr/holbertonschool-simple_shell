@@ -19,5 +19,25 @@ In this case `shell.h`, which means cat file named `"shell.h"`.
 `ls -l` The above example also uses a command but instead of taking an argument, it has options. In this
 case `-l` which stands for list files long format (list all files including hidden ones).
 
+For more information on cat, you can use the `man` command which will show a manual of the given command
+or any command you wish to know more information. It contains system calls, libreries and other important files.
 
+The shell also contains two builtins whitch are commands that are within the shell itself. The two builtins are `exit`
+and `env`. You can use `help` command to know which builtins are provided bu the shell. The `help` command works similatly
+to the manual where it provides further detail or information on given builtin.
 
+## Compilation
+All files will be compiled with the folling command: `gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c`
+
+### List of commands:
+ \- `cat` - prints and concatenates files to the standard output.
+ \- `cp` - copies a file into another file.
+ \- `grep` - helps to search for a file in a specific pattern.
+ \- `less` - will let you go backwards and forward in the files.
+ \- `ls` - will list all files and directories in current working directory.
+ \- `mv` - helps to move one file into another or rename file.
+ \- `pwd` - gives you the current working directory.
+
+ ## builtins
+ 
+ 
