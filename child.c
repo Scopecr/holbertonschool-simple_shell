@@ -2,7 +2,7 @@
 /**
  * child - function for child process
  * @fullpath: full path of executable
- * @token: tokenized user input
+ * @tokens: tokenized user input
  * Return: 0 on success
 */
 
@@ -23,7 +23,7 @@ int child(char *fullpath, char **tokens)
 	{
 		execve_status = execve(fullpath, tokens, envp);
 		if (execve_status == -1)
-			return(-1);
+			return (-1);
 	}
 	else
 	wait(&status);
