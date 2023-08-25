@@ -1,5 +1,9 @@
 #include "shell.h"
-
+/**
+ * tokenizer - tokenizes string
+ * @str: user input
+ * Return: pointer to array of tokens
+ */
 char **tokenizer(char *str)
 {
 	char **tokens;
@@ -19,7 +23,7 @@ char **tokenizer(char *str)
 	while (token != NULL)
 	{
 		tokens[i] = token;
-		token = strtok (NULL, "\n\t\r ");
+		token = strtok(NULL, "\n\t\r ");
 		i++;
 	}
 	tokens[i] = NULL;
