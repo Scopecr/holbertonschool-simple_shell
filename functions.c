@@ -1,3 +1,4 @@
+#include <stdio.h> // Include the standard I/O header for getline function
 #include "shell.h"
 
 int main(void)
@@ -25,11 +26,7 @@ int main(void)
         else
             status = child(fullpath, tokens);
 
-        for (int i = 0; tokens[i] != NULL; i++)
-        {
-            free(tokens[i]);
-        }
-        free(tokens);
+        free_dp(tokens, _strlen(tokens));
         free(fullpath);
     }
 
