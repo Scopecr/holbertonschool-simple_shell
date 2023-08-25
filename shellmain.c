@@ -2,46 +2,33 @@
 
 int main(void)
 {
-    char *line = NULL, **tokens = NULL, *fullpath = NULL;
+    char *line = NULL;
     size_t len = 0;
     ssize_t read;
-    struct stat buf;
+    char **tokens = NULL;
+    char *fullpath = NULL;
+    int status = 1;
 
-    prompt(STDOUT_FILENO, buf);
-
-    while ((read = getline(&line, &len, stdin)) != -1)
+    while (status)
     {
+        printf(PROMPT);
+        read = getline(&line, &len, stdin);
+        if (read == -1)
+            break;
+
         tokens = tokenizer(line);
-        if (!tokens)
+        if (tokens == NULL)
             continue;
 
         if (_which(tokens[0], &fullpath, getenv("PATH")) == 1)
-        {
             status = builtin_execute(tokens);
-        }
         else
-        {
-            if (stat(tokens[0], &buf) == 0)
-            {
-                if (S_ISREG(buf.st_mode) && (buf.st_mode & S_IXUSR))
-                    status = child(tokens[0], tokens);
-                else
-                    status = 126;
-            }
-            else
-            {
-                _puts("shell: command not found: ");
-                _puts(tokens[0]);
-                _puts("\n");
-                status = 127;
-            }
-        }
+            status = child(fullpath, tokens);
 
         free_dp(tokens, _strlen_arr(tokens));
         free(fullpath);
-        prompt(STDOUT_FILENO, buf);
     }
 
     free(line);
-    return status;
+    return EXIT_SUCCESS;
 }
