@@ -1,4 +1,5 @@
 #include "shell.h"
+#include <string.h>
 
 char *_getenv(const char *name)
 {
@@ -12,7 +13,7 @@ char *_getenv(const char *name)
     {
         environ_length++;
     }
-    environ_copy = copy_env(environ_length);
+    environ_copy = copy_env(NULL, environ_length); // Pass NULL as the first argument
 
     length = strlen(name);
     i = 0;
@@ -22,11 +23,12 @@ char *_getenv(const char *name)
         compare = strncmp(name, variable, length);
         if (compare == 0)
         {
-            value = strchr(variable, '=') + 1; // Find the value part after '='
+            value = strchr(variable, '=') + 1;
             return value;
         }
         i++;
     }
+    free_dp(environ_copy, environ_length); // Free the copied environment
     return NULL;
 }
 
