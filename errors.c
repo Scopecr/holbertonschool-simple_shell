@@ -1,10 +1,14 @@
 #include "shell.h"
-
+/**
+ * errors - prints errors based on case
+ * @error: error number associated with perror statement
+ * Return: void
+*/
 void errors(int error)
 {
 	switch (error)
 	{
-		case 1: 
+		case 1:
 				write(STDERR_FILENO, ERR_FORK, strlen(ERR_FORK));
 				perror("Error");
 				break;
@@ -15,7 +19,7 @@ void errors(int error)
 
 		case 3:
 				write(STDERR_FILENO, ERR_MALLOC, strlen(ERR_MALLOC));
-				break; 
+				break;
 
 		case 4:
 				write(STDERR_FILENO, ERR_PATH, strlen(ERR_PATH));
