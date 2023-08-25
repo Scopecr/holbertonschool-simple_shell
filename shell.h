@@ -11,6 +11,7 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <sys/wait.h>
+#include <limits.h> // Include this header for PATH_MAX
 
 #define BUFFER 1024
 #define TRUE 1
@@ -30,8 +31,8 @@ extern char **environ;
 **/
 typedef struct list_s
 {
-	char *value;
-	struct list_s *next;
+    char *value;
+    struct list_s *next;
 } list_s;
 /**
  * struct built_s - linked list of builtins
@@ -42,8 +43,8 @@ typedef struct list_s
 **/
 typedef struct built_s
 {
-	char *name;
-	int (*p)(void);
+    char *name;
+    int (*p)(void);
 } built_s;
 
 /*functions*/
@@ -69,10 +70,11 @@ int shell_num_builtins(built_s builtin[]);
 
 /* prototypes for the helper functions for path linked list */
 char *_getenv(const char *name);
-char **copy_env(char **environ_copy, unsigned int environ_length);
+char **copy_env(unsigned int environ_length);
 list_s *pathlist(char *variable, list_s *head);
 
 /* prototypes for free functions */
 void free_all(char **tokens, char *path, char *line, char *fullpath, int flag);
 void free_dp(char **array, unsigned int length);
 #endif
+
