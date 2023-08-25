@@ -1,11 +1,11 @@
 #include "shell.h"
 #include <limits.h> /* Include for PATH_MAX */
 
-char *_which(char *command, char *fullpath, char *path)
+char *_which(char *command, char *path)
 {
     unsigned int command_length, path_length;
     char path_copy[PATH_MAX];
-    char *token, *result_fullpath;
+    char *token, *fullpath;
 
     command_length = strlen(command);
     strncpy(path_copy, path, sizeof(path_copy) - 1);
@@ -15,21 +15,21 @@ char *_which(char *command, char *fullpath, char *path)
     while (token != NULL)
     {
         path_length = strlen(token);
-        result_fullpath = (char *)malloc(path_length + command_length + 2);
-        if (result_fullpath == NULL)
+        fullpath = (char *)malloc(path_length + command_length + 2);
+        if (fullpath == NULL)
         {
             errors(3);
             return NULL;
         }
-        strncpy(result_fullpath, token, path_length);
-        result_fullpath[path_length] = '/';
-        strncpy(result_fullpath + path_length + 1, command, command_length);
-        result_fullpath[path_length + command_length + 1] = '\0';
-        if (access(result_fullpath, X_OK) == 0)
+        strncpy(fullpath, token, path_length);
+        fullpath[path_length] = '/';
+        strncpy(fullpath + path_length + 1, command, command_length);
+        fullpath[path_length + command_length + 1] = '\0';
+        if (access(fullpath, X_OK) == 0)
         {
-            return result_fullpath; /* Return the valid fullpath */
+            return fullpath; /* Return the valid fullpath */
         }
-        free(result_fullpath);
+        free(fullpath);
         token = strtok(NULL, ":");
     }
 
