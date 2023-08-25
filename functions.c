@@ -1,4 +1,3 @@
-#include <stdio.h> 
 #include "shell.h"
 
 int main(void)
@@ -13,11 +12,11 @@ int main(void)
     while (status)
     {
         prompt(STDOUT_FILENO, (struct stat){0});
-        read = getline(&line, &len, stdin);
+        read = _getline(stdin, &line, &len);
         if (read == -1)
             break;
 
-        tokens = tokenizer(line);
+        tokens = shell_line_splitter(line);
         if (tokens == NULL)
             continue;
 
