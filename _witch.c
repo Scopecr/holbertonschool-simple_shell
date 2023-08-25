@@ -1,5 +1,5 @@
 #include "shell.h"
-#include <limits.h> // Include for PATH_MAX
+#include <limits.h> /* Include for PATH_MAX */
 
 char *_which(char *command, char *path)
 {
@@ -35,3 +35,4 @@ char *_which(char *command, char *path)
 
     return NULL; /* Return NULL if command not found */
 }
+
