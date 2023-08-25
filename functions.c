@@ -12,7 +12,7 @@ int main(void)
     while (status)
     {
         prompt(STDOUT_FILENO, (struct stat){0});
-        read = _getline(stdin, &line, &len);
+        read = _getline(stdin, &line);
         if (read == -1)
             break;
 
@@ -32,3 +32,4 @@ int main(void)
     free(line);
     return EXIT_SUCCESS;
 }
+
