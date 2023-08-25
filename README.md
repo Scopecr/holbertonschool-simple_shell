@@ -31,13 +31,13 @@ All files will be compiled with the folling command: `gcc -Wall -Werror -Wextra 
 
 ### List of commands:
  
- *- `cat` - prints and concatenates files to the standard output.
- *- `cp` - copies a file into another file.
- *- `grep` - helps to search for a file in a specific pattern.
- *- `less` - will let you go backwards and forward in the files.
- *- `ls` - will list all files and directories in current working directory.
- *- `mv` - helps to move one file into another or rename file.
- *- `pwd` - gives you the current working directory.
+- `cat` - prints and concatenates files to the standard output.
+- `cp` - copies a file into another file.
+- `grep` - helps to search for a file in a specific pattern.
+- `less` - will let you go backwards and forward in the files.
+- `ls` - will list all files and directories in current working directory.
+- `mv` - helps to move one file into another or rename file.
+- `pwd` - gives you the current working directory.
 
  ## builtins
  
