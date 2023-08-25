@@ -1,5 +1,5 @@
 #include "shell.h"
-#include <limits.h> /* Include for PATH_MAX */
+#include <limits.h> // Include for PATH_MAX
 
 char *_which(char *command, char *path)
 {
@@ -27,12 +27,11 @@ char *_which(char *command, char *path)
         fullpath[path_length + command_length + 1] = '\0';
         if (access(fullpath, X_OK) == 0)
         {
-            return fullpath; /* Return the valid fullpath */
+            return fullpath; // Return the valid fullpath
         }
         free(fullpath);
         token = strtok(NULL, ":");
     }
 
-    return NULL; /* Return NULL if command not found */
+    return NULL; // Return NULL if command not found
 }
-
