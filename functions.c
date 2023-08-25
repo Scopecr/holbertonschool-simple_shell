@@ -1,4 +1,4 @@
-#include <stdio.h> // Include the standard I/O header for getline function
+#include <stdio.h> 
 #include "shell.h"
 
 int main(void)
