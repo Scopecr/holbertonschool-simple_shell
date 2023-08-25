@@ -11,7 +11,11 @@ void prompt(int fd, struct stat buf)
 	if (S_ISCHR(buf.st_mode))
 		_puts(PROMPT);
 }
-
+/**
+ * _puts - prints a string without a \n
+ * @str: string to print
+ * Return: void
+ */
 
 void _puts(char *str)
 {
