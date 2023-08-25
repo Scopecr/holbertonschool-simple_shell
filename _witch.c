@@ -1,5 +1,11 @@
 #include "shell.h"
 
+/**
+ * _which - searches for a command in the PATH environment variable
+ * @command: the command to search for
+ * @path: the PATH environment variable
+ * Return: pointer to the full path of the command, or NULL if not found
+ */
 char *_which(char *command, char *path)
 {
     unsigned int command_length, path_length;
@@ -26,11 +32,12 @@ char *_which(char *command, char *path)
         fullpath[path_length + command_length + 1] = '\0';
         if (access(fullpath, X_OK) == 0)
         {
-            return fullpath; // Return the valid fullpath
+            return fullpath; /* Return the valid fullpath */
         }
         free(fullpath);
         token = strtok(NULL, ":");
     }
 
-    return NULL; // Return NULL if command not found
+    return NULL; /* Return NULL if command not found */
 }
+
