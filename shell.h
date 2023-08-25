@@ -11,7 +11,6 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <sys/wait.h>
-#include <limits.h> // Include this header for PATH_MAX
 
 #define BUFFER 1024
 #define TRUE 1
@@ -70,7 +69,7 @@ int shell_num_builtins(built_s builtin[]);
 
 /* prototypes for the helper functions for path linked list */
 char *_getenv(const char *name);
-char **copy_env(unsigned int environ_length);
+char **copy_env(char **environ_copy, unsigned int environ_length);
 list_s *pathlist(char *variable, list_s *head);
 
 /* prototypes for free functions */
