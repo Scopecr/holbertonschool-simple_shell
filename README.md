@@ -39,5 +39,20 @@ All files will be compiled with the folling command: `gcc -Wall -Werror -Wextra 
 - `mv` - helps to move one file into another or rename file.
 - `pwd` - gives you the current working directory.
 
- ## builtins
+ ## Builtins
+ There are two builtins programmed into the shell. Bellow is a description and use for each builtin.
+ - `env` - The env command is a command that tells the shell program to siaplay al;l of the enviroment
+			variables with their values. it is a way to access those values through the shell.
  
+ - `exit` - command to leave the shell environment.
+
+### Exiting command and the shell
+	To exit out of a command or process the user can use the `ctrl c` keys.`Control c` stops a process
+	and causes it to abort. The user can also utilize the command `ctrl D` which will just exit.
+	When the command `cntrl D` is used an exit status of 0 is given. Using exit, you can input its exit
+	status or is defaulted to the status of the last command. 
+
+## Authors
+Walter Carrion - https://github.com/Scopecr
+Diego Gonzales - https://github.com/daggzu
+
