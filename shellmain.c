@@ -1,21 +1,4 @@
 #include "shell.h"
-#ifndef SHELL_H
-#define SHELL_H
-
-/* ... other includes and definitions ... */
-
-/**
- * _which - searches for a command in the PATH environment variable
- * @command: the command to search for
- * @fullpath: pointer to store the full path of the command (output)
- * @path: the PATH environment variable
- * Return: 1 if found, 0 if not found, -1 on error
- */
-int _which(char *command, char **fullpath, char *path);
-
-/* ... other function prototypes ... */
-
-#endif
 
 int main(void)
 {
