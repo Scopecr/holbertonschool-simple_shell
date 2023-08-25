@@ -1,11 +1,12 @@
 #include "shell.h"
-#include <string.h>
+#include <stddef.h>
+#include <limits.h> // Include for PATH_MAX
 
-char *_which(char *command, char *path)
+char *_which(char *command, char *fullpath, char *path)
 {
     unsigned int command_length, path_length;
-    char path_copy[PATH_MAX];
-    char *token, *fullpath;
+    char path_copy[PATH_MAX]; // Include PATH_MAX here
+    char *token;
 
     command_length = strlen(command);
     strncpy(path_copy, path, sizeof(path_copy) - 1);
@@ -15,7 +16,7 @@ char *_which(char *command, char *path)
     while (token != NULL)
     {
         path_length = strlen(token);
-        fullpath = (char *)malloc(path_length + command_length + 2);
+        fullpath = malloc(path_length + command_length + 2);
         if (fullpath == NULL)
         {
             errors(3);
@@ -27,11 +28,11 @@ char *_which(char *command, char *path)
         fullpath[path_length + command_length + 1] = '\0';
         if (access(fullpath, X_OK) == 0)
         {
-            return fullpath; // Return the valid fullpath
+            return fullpath;
         }
         free(fullpath);
         token = strtok(NULL, ":");
     }
 
-    return NULL; // Return NULL if command not found
+    return NULL;
 }
