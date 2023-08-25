@@ -10,12 +10,13 @@ int main(void)
     while (status)
     {
         prompt(STDOUT_FILENO, (struct stat){0});
-        line = _getline(stdin);
+
+        line = _getline(stdin); // Use _getline instead of getline
 
         if (!line)
             break;
 
-        tokens = shell_line_splitter(line);
+        tokens = shell_line_splitter(line); // Use shell_line_splitter instead of tokenizer
         if (tokens == NULL)
             continue;
 
@@ -24,11 +25,10 @@ int main(void)
         else
             status = child(fullpath, tokens);
 
-        free_dp(tokens, tokens_count(tokens));
+        free_dp(tokens, tokens_count(tokens)); // Use tokens_count instead of _strlen
         free(fullpath);
         free(line);
     }
 
     return EXIT_SUCCESS;
 }
-
