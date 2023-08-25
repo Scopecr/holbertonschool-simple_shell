@@ -3,8 +3,6 @@
 int main(void)
 {
     char *line = NULL;
-    size_t len = 0;
-    ssize_t read;
     char **tokens = NULL;
     char *fullpath = NULL;
     int status = TRUE;
@@ -12,8 +10,9 @@ int main(void)
     while (status)
     {
         prompt(STDOUT_FILENO, (struct stat){0});
-        read = _getline(stdin, &line);
-        if (read == -1)
+        line = _getline(stdin);
+
+        if (!line)
             break;
 
         tokens = shell_line_splitter(line);
@@ -25,11 +24,11 @@ int main(void)
         else
             status = child(fullpath, tokens);
 
-        free_dp(tokens, _strlen(tokens));
+        free_dp(tokens, tokens_count(tokens));
         free(fullpath);
+        free(line);
     }
 
-    free(line);
     return EXIT_SUCCESS;
 }
 
