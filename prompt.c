@@ -13,11 +13,11 @@ char *trim(char *str)
 	int index = 0;
 	int i;
 
-	while (isspace(str[start])) 
+	while (isspace(str[start]))
 	{
 		start++;
 	}
-	while (end >= 0 && isspace(str[end])) 
+	while (end >= 0 && isspace(str[end]))
 	{
 		end--;
 	}
