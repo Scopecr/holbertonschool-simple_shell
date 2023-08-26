@@ -1,32 +1,17 @@
 #include "shell.h"
+
 /**
- * tokenizer - tokenizes string
- * @str: user input
- * Return: pointer to array of tokens
- */
-char **tokenizer(char *str)
+	* noninteractive - gets the input and runs it with the other functions.
+	*/
+void noninteractive(void)
 {
-	char **tokens;
-	char *token;
-	unsigned int i;
+	char *line;
+	char **args;
 
-	tokens = malloc(sizeof(char) * BUFFER);
-	if (tokens == NULL)
-	{
-		errors(3);
-		exit(EXIT_FAILURE);
-	}
+	line = run_line_reader();
+	args = shell_line_splitter(line);
+	run_executer(args);
 
-	token = strtok(str, "\n\t\r ");
-
-	i = 0;
-	while (token != NULL)
-	{
-		tokens[i] = token;
-		token = strtok(NULL, "\n\t\r ");
-		i++;
-	}
-	tokens[i] = NULL;
-
-	return (tokens);
+	free(line);
+	free(args);
 }

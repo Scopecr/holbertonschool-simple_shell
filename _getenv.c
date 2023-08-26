@@ -1,89 +1,151 @@
 #include "shell.h"
+
+void array1(void);
+void array2(void);
+
 /**
-* _getenv - gets an environment variable
-* @name: environment variable to get
-* Return: pointer to environment variable or NULL if there is no match
-*/
-
-char *_getenv(const char *name)
+	* nekoarc_run - prints a nekoarc.
+	* @args: Arguments for the function.
+	* Return: 1.
+	*/
+int nekoarc_run(char **args)
 {
-	char **environ_copy;
-	char *variable, *value, *path;
-	int compare;
-	unsigned int path_length, environ_length, length, i;
+	array1();
+	array2();
 
-	environ_length = 0;
-	while (environ[environ_length] != NULL)
-	{
-		environ_length++;
-	}
-	environ_copy = copy_env(environ_length);
+	(void)args;
 
-	length = strlen(name);
-	i = 0;
-	while (environ_copy[i] != NULL)
-	{
-		variable = environ_copy[i];
-		compare = strncmp(name, variable, length);
-		if (compare == 0)
-		{
-			value = strtok(variable, "=");
-			value = strtok(NULL, "\n");
-		if (value == NULL)
-		{
-			errors(4);
-			exit(EXIT_FAILURE);
-		}
-		path_length = strlen(value);
-			path = malloc(sizeof(char) * (path_length + 1));
-		if (path == NULL)
-		{
-			errors(3);
-				return NULL;
-		}
-		path = strcpy(path, value);
-		free_dp(environ_copy, environ_length);
-			return path;
-		}
-	i++;
-	}
-	return NULL;
+	return (1);
 }
 
 /**
- * copy_env - copies environment variable
- * @environ_length: length of environment variable
- * Return: double pointer to copy environment variable
-*/
-char **copy_env(unsigned int environ_length)
+  * array1 - prints the top half of neko arc
+  * Return: nothing
+  */
+void array1(void)
 {
-	char **environ_copy;
-	char *variable;
-	unsigned int variable_length;
-	unsigned int i;
-	
-	environ_copy = malloc(sizeof(char *) * (environ_length + 1));
-	if (environ_copy == NULL)
-	{
-		errors(3);
-		return NULL;
-	}
-	i = 0;
-	while (i < environ_length)
-	{
-		variable = environ[i];
-		variable_length = strlen(variable);
+	int o;
+	char *arrayone[32] = {
+	"               ",
+	"   ⢀⡔⣻⠁ ⢀⣀⣀⡀\n",
+	"⠀⠀⠀⠀⢀⣾⠳⢶⣦⠤⣀⠀⠀⠀⠀⠀⠀⠀",
+	"⣾⢀⡇⡴⠋⣀⠴⣊⣩⣤⠶⠞⢹⣄\n",
+	"⠀⠀⠀⠀⢸⠀⠀⢠⠈⠙⠢⣙⠲⢤⠤⠤⠀⠒",
+	"⠳⡄⣿⢀⠾⠓⢋⠅⠛⠉⠉⠝⠀⠼\n",
+	"⠀⠀⠀⠀⢸⠀⢰⡀⠁⠀⠀⠈⠑⠦⡀⠀⠀⠀⠀",
+	"⠈⠺⢿⣂⠀⠉⠐⠲⡤⣄⢉⠝⢸\n",
+	"⠀⠀⠀⠀⢸⠀⢀⡹⠆⠀⠀⠀⠀⡠⠃⠀⠀⠀⠀",
+	"⠀⠀⠀⠉⠙⠲⣄⠀⠀⠙⣷⡄⢸\n",
+	"⠀⠀⠀⠀⢸⡀⠙⠂⢠⠀⠀⡠⠊⠀⠀⠀⠀⢠⠀",
+	"⠀⠀⠀⠘⠄⠀⠀⠑⢦⣔⠀⢡⡸\n",
+	"⠀⠀⠀⠀⢀⣧⠀⢀⡧⣴⠯⡀⠀⠀⠀⠀⠀⡎⠀⠀",
+	"⠀⠀⠀⢸⡠⠔⠈⠁⠙⡗⡤⣷⡀\n",
+	"⠀⠀⠀⠀⡜⠈⠚⠁⣬⠓⠒⢼⠅⠀⠀⠀⣠⡇⠀⠀⠀",
+	"⠀⠀⠀⣧⠀⠀⠀⡀⢹⠀⠸⡄\n",
+	"⠀⠀⠀⡸⠀⠀⠀⠘⢸⢀⠐⢃⠀⠀⠀⡰⠋⡇⠀⠀",
+	"⠀⢠⠀⠀⡿⣆⠀⠀⣧⡈⡇⠆⢻\n",
+	"⠀⠀⢰⠃⠀⠀⢀⡇⠼⠉⠀⢸⡤⠤⣶⡖⠒⠺⢄⡀",
+	"⢀⠎⡆⣸⣥⠬⠧⢴⣿⠉⠁⠸⡀⣇\n",
+	"⠀⠀⠇⠀⠀⠀⢸⠀⠀⠀⣰⠋⠀⢸⣿⣿⠀⠀⠀⠙",
+	"⢧⡴⢹⣿⣿⠀⠀⠀⠈⣆⠀⠀⢧⢹⡄\n",
+	"⠀⣸⠀⢠⠀⠀⢸⡀⠀⠀⢻⡀⠀⢸⣿⣿⠀⠀",
+	"⠀⠀⡼⣇⢸⣿⣿⠀⠀⠀⢀⠏⠀⠀⢸⠀⠇\n",
+	"⠀⠓⠈⢃⠀⠀⠀⡇⠀⠀⠀⣗⠦⣀⣿⡇⠀⣀⠤",
+	"⠊⠀⠈⠺⢿⣃⣀⠤⠔⢸⠀⠀⠀⣼⠑⢼\n",
+	"⠀⠀⠀⢸⡀⣀⣾⣷⡀⠀⢸⣯⣦⡀⠀⠀⠀⢇⣀⣀",
+	"⠐⠦⣀⠘⠀⠀⢀⣰⣿⣄⠀⠀⡟\n",
+	"⠀⠀⠀⠀⠛⠁⣿⣿⣧⠀⣿⣿⣿⣿⣦⣀⠀⠀⠀⠀",
+	"⠀⠀⠀⣀⣠⣴⣿⣿⡿⠈⠢⣼⡇\n",
+	"⠀⠀⠀⠀⠀⠀⠈⠁⠈⠻⠈⢻⡿⠉⣿⠿⠛⡇⠒⠒",
+	"⢲⠺⢿⣿⣿⠉⠻⡿⠁⠀⠀⠈⠁\n"
+	};
 
-		environ_copy[i] = malloc(sizeof(char) * (variable_length + 1));
-		if (environ_copy[i] == NULL)
-		{
-			errors(3);
-			free_dp(environ_copy, i);
-			return NULL;
-		}
-		memcpy(environ_copy[i], environ[i], variable_length + 1);
-		i++;
+	for (o = 0 ; o <= 31 ; o++)
+	{
+		printf("%s", arrayone[o]);
 	}
-	environ_copy[i] = NULL;
-	return environ_copy;
+}
+
+/**
+  * array2 - prints the bottom half of neko arc
+  * Return: nothing
+  */
+void array2(void)
+{
+	int t;
+	char *arraytwo[32] = {
+	"⢀⠤⠒⠦⡀⠀⠀⠀⠀⠀⠀⠀⢀⠞⠉",
+	"⠆⠀⠀⠉⠉⠉⠀⠀⡝⣍\n",
+	"⡎⠀⠀⠀⡇⠀⠀⠀⠀⠀⠀⡰⠋⠀⠀",
+	"⢸⠀⠀⠀⠀⠀⠀⠀⢡⠈⢦\n",
+	"⡇⠀⠀⠸⠁⠀⠀⠀⠀⢀⠜⠁⠀⠀⠀",
+	"⡸⠀⠀⠀⠀⠀⠀⠀⠘⡄⠈⢳⡀\n",
+	"⡇⠀⠀⢠⠀⠀⠀⠀⠠⣯⣀⠀⠀⠀⡰⡇",
+	"⠀⠀⠀⠀⠀⠀⠀⠀⢣⠀⢀⡦⠤⢄⡀\n",
+	"⢱⡀⠀⠈⠳⢤⣠⠖⠋⠛⠛⢷⣄⢠⣷⠁",
+	"⠀⠀⠀⠀⠀⠀⠀⠀⠘⡾⢳⠃⠀⠀⠘⢇\n",
+	"⠀⠙⢦⡀⠀⢠⠁⠀⠀⠀⠀⠀⠙⣿⣏⣀",
+	"⠀⠀⠀⠀⠀⠀⠀⣀⣴⣧⡃⠀⠀⠀⠀⣸\n",
+	"⠀⠀⠀⠈⠉⢺⣄⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿",
+	"⣿⣿⣿⣿⣿⣿⣿⣿⣿⣗⣤⣀⣠⡾⠃\n",
+	"⠀⠀⠀⠀⠀⠀⠣⢅⡤⣀⣀⣠⣼⣿⣿⣿⣿",
+	"⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⠉⠉⠉\n",
+	"⠀⠀⠀⠀⠀⠀⠀⠀⠉⠉⠉⠁⠀⠉⣿⣿",
+	"⣿⣿⣿⡿⠻⣿⣿⣿⣿⠛⠉\n",
+	"⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣸⣿⣿",
+	"⣿⠀⠀⠀⠀⣿⣿⣿⡿\n",
+	"⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣴⣿",
+	"⣿⣿⣟⠀⠀⢠⣿⣿⣿⣿⣧\n",
+	"⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰⣿⣿",
+	"⣿⣿⣿⠀⠀⢸⣿⣿⣿⣿⣿\n",
+	"⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿",
+	"⣿⣿⣿⡏⠀⠀⢸⣿⣿⣿⣿⣿⡀\n",
+	"⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣿⣿⣿",
+	"⣿⣿⠀⠀⠀⢺⣿⣿⣿⣿⣿⣿⣷\n",
+	"⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿",
+	"⣿⣿⠀⠀⠀⠀⠈⠉⠻⣿⣿⣿⠟\n",
+	"⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⢿⣿⣿",
+	"⣿⠏ Neko Arc\n"
+	};
+
+	for (t = 0 ; t <= 31 ; t++)
+	{
+		printf("%s", arraytwo[t]);
+	}
+}
+
+/**
+	* aheago_run - prints an aheago.
+	* @args: Arguments for the function.
+	* Return: 1.
+	*/
+int aheago_run(char **args)
+{
+
+	char *aheagoarray[14] = {
+	"⣾⣿⠿⠿⠶⠿⢿⣿⣿⣿⣿⣦⣤⣄⢀⡅⢠⣾⣛⡉⠄⠄⠄\n",
+	"⡋⣡⣴⣶⣶⡀⠄⠄⠙⢿⣿⣿⣿⣿⣿⣴⣿⣿⣿⢃⣤⣄⣀⣥\n",
+	"⣇⠻⣿⣿⣿⣧⣀⢀⣠⡌⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠿⠿⣿\n",
+	"⣿⣷⣤⣤⣤⣬⣙⣛⢿⣿⣿⣿⣿⣿⣿⡿⣿⣿⡍⠄⠄⢀⣤⣄\n",
+	"⣿⣿⣿⣿⣿⣿⣿⣿⣿⢿⣿⣿⣿⣿⣿⢇⣿⣿⡷⠶⠶⢿⣿⣿\n",
+	"⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣽⣿⣿⣿⡇⣿⣿⣿⣿⣿⣿⣷⣶⣥\n",
+	"⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\n",
+	"⣌⣛⣻⣿⣿⣧⠙⠛⠛⡭⠅⠒⠦⠭⣭⡻⣿⣿⣿⣿⣿⣿⣿⣿\n",
+	"⣿⣿⣿⣿⣿⣿⡆⠄⠄⠄⠄⠄⠄⠄⠄⠹⠈⢋⣽⣿⣿⣿⣿⣵\n",
+	"⣿⣿⣿⣿⣿⣿⣿⠄⣴⣿⣶⣄⠄⣴⣶⠄⢀⣾⣿⣿⣿⣿⣿⣿\n",
+	"⠻⣿⣿⣿⣿⣿⣿⡄⢻⣿⣿⣿⠄⣿⣿⡀⣾⣿⣿⣿⣿⣛⠛⠁\n",
+	"⠄⠈⠛⢿⣿⣿⣿⠁⠞⢿⣿⣿⡄⢿⣿⡇⣸⣿⣿⠿⠛⠁⠄⠄\n",
+	"⠄⠄⠄⠄⠉⠻⣿⣿⣾⣦⡙⠻⣷⣾⣿⠃⠿⠋⠁⠄⠄⠄⠄⠄\n",
+	"⣶⣶⣮⣥⣒⠲⢮⣝⡿⣿⣿⡆⣿⡿⠃⠄⠄⠄⠄⠄⠄⠄⠄\n"
+	};
+	int i;
+
+	(void)args;
+
+	for (i = 0 ; i <= 13 ; i++)
+	{
+		printf("%s", aheagoarray[i]);
+	}
+
+	return (1);
 }
