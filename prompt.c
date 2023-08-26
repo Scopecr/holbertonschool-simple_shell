@@ -77,8 +77,7 @@ int exit_run(char **args)
 int run_executer(char **args)
 {
 	char *programs[] = {"cd", "help", "exit", "aheago", "nekoarc"};
-	int i, (*functions[]) (char **) = {&cd_run, &help_run, &exit_run,
-	&aheago_run, &nekoarc_run};
+	int i, (*functions[]) (char **) = {&cd_run, &help_run, &exit_run};
 
 	/** if no function dont do anything */
 	if (args[0] == NULL)
