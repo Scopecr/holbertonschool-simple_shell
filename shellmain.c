@@ -1,49 +1,48 @@
 #include "shell.h"
-
 /**
-	* shell_loop_input - gets the input and runs it with the other functions.
-	*/
-void shell_loop_input(void)
+ * main - main loop of shell
+ * Return: 0 on success
+ */
+int main(void)
 {
-	char *line;
-	char **args;
-	int status;
+	char *line, *path, *fullpath;
+	char **tokens;
+	int flag, builtin_status, child_status;
+	struct stat buf;
 
-	/** prints the $ and receives the input and runs command if any is provided */
-	do {
-		printf("$ ");
-		line = run_line_reader();
-		args = shell_line_splitter(line);
-		status = run_executer(args);
-
-		free(line);
-		free(args);
-	} while (status);
-}
-
-/**
-	* main - runs the program lmao.
-	* @argc: number of arguments.
-	* @argv: array of arguments.
-	* Return: status of the code.
-	*/
-int main(int argc, char **argv)
-{
-	char **v = argv;
-	int c = argc;
-	(void)c;
-	(void)v;
-
-	/** determines if its in interactive mode or not */
-	if (isatty(0))
+	while (TRUE)
 	{
-		shell_loop_input();
+		prompt(STDIN_FILENO, buf);
+		line = _getline(stdin);
+		if (_strcmp(line, "\n", 1) == 0)
+		{
+			free(line);
+			continue;
+		}
+		tokens = tokenizer(line);
+		if (tokens[0] == NULL)
+			continue;
+		builtin_status = builtin_execute(tokens);
+		if (builtin_status == 0 || builtin_status == -1)
+		{
+			free(tokens);
+			free(line);
+		}
+		if (builtin_status == 0)
+			continue;
+		if (builtin_status == -1)
+			_exit(EXIT_SUCCESS);
+		flag = 0; /* 0 if full_path is not malloc'd */
+		path = _getenv("PATH");
+		fullpath = _which(tokens[0], fullpath, path);
+		if (fullpath == NULL)
+			fullpath = tokens[0];
+		else
+			flag = 1; /* if fullpath was malloc'd, flag to free */
+		child_status = child(fullpath, tokens);
+		if (child_status == -1)
+			errors(2);
+		free_all(tokens, path, line, fullpath, flag);
 	}
-	else
-	{
-		noninteractive();
-	}
-
-
-	return (EXIT_SUCCESS);
+	return (0);
 }
