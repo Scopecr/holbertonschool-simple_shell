@@ -7,7 +7,7 @@ The shell works by being compiled using GCC ompailer, the shell can compile usin
 
 ## How do i run the program?
 To run it use `./hsh`. The program will then ask you to enter any command so that it can be displayed on
-
+![showcase] 
 ## Syntax
 The shell works by command given by the user's input. You can use the following syntax for them:
 
